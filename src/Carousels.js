@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 const data = [
@@ -19,20 +20,25 @@ const Carousels = () => {
     setClickBtn((clickBtn + 1) % data.length);
   };
 
+  useEffect(() => {
+    let timeOut = setTimeout(() => {
+      handleNextClick();
+    }, 5000);
+
+    return () => clearTimeout(timeOut);
+  }, [clickBtn]);
+
   return (
     <div className="App">
       <button className="button-left" onClick={handlePrevClick}>
         Prev
       </button>
-      {data.map((imgIdex, idex) => (
-        <img
-          key={idex}
-          src={imgIdex}
-          className={
-            "countanier " + activeImageIndex === idex ? "block" : "hidden"
-          }
-        />
-      ))}
+      {/* Perfomance optimization once images will be loaded when trigger the prev and next button */}
+      {/* {data.map((imgIdex, idex) => (
+        <img key src={imgIdex} className={"countanier"} />
+      ))} */}
+
+      <img src={data[clickBtn]} className={"countanier"} />
 
       <button className="button-right" onClick={handleNextClick}>
         Next
