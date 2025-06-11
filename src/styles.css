@@ -1,0 +1,11 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.countanier {
+  margin: 15px;
+  padding: 40px;
+  height: 150px;
+  width: 250px;
+}
