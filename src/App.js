@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 import RestorentMenu from "./RestorentMenu";
-import Carousels from "./Caresole";
+import Carousels from "./Carousels";
 
 export default function App() {
   return (
