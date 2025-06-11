@@ -24,7 +24,16 @@ const Carousels = () => {
       <button className="button-left" onClick={handlePrevClick}>
         Prev
       </button>
-      <img className="countanier" src={data[clickBtn]} />
+      {data.map((imgIdex, idex) => (
+        <img
+          key={idex}
+          src={imgIdex}
+          className={
+            "countanier " + activeImageIndex === idex ? "block" : "hidden"
+          }
+        />
+      ))}
+
       <button className="button-right" onClick={handleNextClick}>
         Next
       </button>
